@@ -1,0 +1,15 @@
+////////////////////////////////////////////////////////////////////////////////
+//! \author Chris Oldwood
+//! \file   Interfaces.idl
+//! \brief  The COM interfaces.
+
+import "unknwn.idl";
+
+[
+	object,
+	uuid(CA3CA00E-182E-4ed1-A6B6-3F25451D118D)
+]
+interface ICustomInterface : IUnknown
+{
+	HRESULT TestMethod([in] BSTR bstrInput, [out] BSTR bstrOutput);
+};

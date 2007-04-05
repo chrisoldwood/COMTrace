@@ -1,0 +1,34 @@
+////////////////////////////////////////////////////////////////////////////////
+//! \author Chris Oldwood
+//! \file   TypeLibrary.idl
+//! \brief  The COM server type library.
+
+import "Interfaces.idl";
+
+[
+	uuid(ABE74699-760D-4a59-9EED-CD269A81146D),
+	helpstring("COMTrace Type Library")
+]
+library COMTraceLib
+{
+	importlib("STDOLE2.TLB");
+
+	//
+	// Interfaces.
+	//
+
+	interface ICustomInterface;
+
+	//
+	// Classes.
+	//
+
+	[
+		uuid(F106F0CA-89C8-4729-AFDA-AFDD35F0BBAA),
+		helpstring("The custom interface based COMTrace class")
+	]
+	coclass COMTraceCustom
+	{
+		[default] interface ICustomInterface;
+	};
+};
