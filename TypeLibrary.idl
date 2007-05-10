@@ -1,13 +1,14 @@
 ////////////////////////////////////////////////////////////////////////////////
-//! \author Chris Oldwood
 //! \file   TypeLibrary.idl
 //! \brief  The COM server type library.
+//! \author Chris Oldwood
 
-import "Interfaces.idl";
+#include "Interfaces.idl"
 
 [
 	uuid(ABE74699-760D-4a59-9EED-CD269A81146D),
-	helpstring("COMTrace Type Library")
+	helpstring("COMTrace Type Library"),
+	version(1.0)
 ]
 library COMTraceLib
 {
@@ -18,6 +19,8 @@ library COMTraceLib
 	//
 
 	interface ICustomInterface;
+	interface IDualInterface;
+
 
 	//
 	// Classes.
@@ -25,10 +28,28 @@ library COMTraceLib
 
 	[
 		uuid(F106F0CA-89C8-4729-AFDA-AFDD35F0BBAA),
-		helpstring("The custom interface based COMTrace class")
+		helpstring("The custom interface based Tracer class")
 	]
-	coclass COMTraceCustom
+	coclass CustomTracer
 	{
 		[default] interface ICustomInterface;
+	};
+
+	[
+		uuid(3C061C1D-169D-4d18-8E7F-0E55445FDD69),
+		helpstring("The dispatch interface based Tracer class")
+	]
+	coclass DispatchTracer
+	{
+		[default] dispinterface IDispatchInterface;
+	};
+
+	[
+		uuid(A0FA298A-96F1-48d1-99DD-3E9CEC264C11),
+		helpstring("The dual custom/dispatch interface based Tracer class")
+	]
+	coclass DualTracer
+	{
+		[default] interface IDualInterface;
 	};
 };
