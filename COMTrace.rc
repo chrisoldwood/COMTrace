@@ -10,7 +10,7 @@
 #define APSTUDIO_HIDDEN_SYMBOLS
 #include "windows.h"
 #undef APSTUDIO_HIDDEN_SYMBOLS
-#include "WclRsc.h"
+#include "WCL/WclRsc.h"
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
@@ -46,21 +46,32 @@ END
 
 3 TEXTINCLUDE 
 BEGIN
-    "\r\n"
     "#include ""App.rcv""\r\n"
     "\0"
 END
 
 #endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// TYPELIB
+//
+
+IDR_TYPELIB            TYPELIB                 "COMTrace.tlb"
+
 #endif    // English (U.K.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
 
 #ifndef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-
 #include "App.rcv"
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
+
