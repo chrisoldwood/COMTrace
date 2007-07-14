@@ -9,4 +9,4 @@
 #include <tchar.h>
 
 #include <Core/Common.hpp>
-#include <WCL/wcl.hpp>
+#include <WCL/Common.hpp>
