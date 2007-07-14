@@ -1,0 +1,42 @@
+////////////////////////////////////////////////////////////////////////////////
+//! \author Chris Oldwood
+//! \file   Module.rcv
+//! \brief  The version information resource.
+
+#include <winver.h>
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION		1,0,0,0
+PRODUCTVERSION	1,0,0,0
+FILEFLAGSMASK	VS_FFI_FILEFLAGSMASK
+#ifdef _DEBUG
+FILEFLAGS		VS_FF_DEBUG | VS_FF_PRERELEASE
+#else
+FILEFLAGS		0
+#endif
+FILEOS			VOS__WINDOWS32
+FILETYPE		VFT_DLL
+FILESUBTYPE		VFT_UNKNOWN
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "040904E4"
+		BEGIN
+			VALUE "FileDescription",  "COMTrace Inproc Server\0"
+			VALUE "FileVersion",      "1.0\0"
+			VALUE "InternalName",     "COMTrace.dll\0"
+			VALUE "LegalCopyright",   "(C) Chris Oldwood 2007\0"
+			VALUE "OriginalFilename", "COMTrace.dll\0"
+			VALUE "ProductName",      "COMTrace\0"
+			VALUE "ProductVersion",   "1.0\0"
+#ifdef _DEBUG
+			VALUE "Comments",         "Debug Build\0"
+#endif
+			VALUE "OLESelfRegister",  "\0"
+		END
+	END
+	BLOCK "VarFileInfo"
+	BEGIN
+		VALUE "Translation", 0x809, 1252
+	END
+END
