@@ -3,7 +3,7 @@
 //! \brief  The Logger class definition.
 //! \author Chris Oldwood
 
-#include "AppHeaders.hpp"
+#include "COMTrace.hpp"
 
 #ifdef _DEBUG
 // For memory leak detection.
