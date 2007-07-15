@@ -3,7 +3,10 @@
 //! \brief  The COMTraceServer class definition.
 //! \author Chris Oldwood
 
-#include "AppHeaders.hpp"
+#include "COMTrace.hpp"
+#include "COMTraceServer.hpp"
+#include "COMTraceFactory.hpp"
+#include <WCL/File.hpp>
 
 #ifdef _DEBUG
 // For memory leak detection.

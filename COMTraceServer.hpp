@@ -7,7 +7,12 @@
 #ifndef COMTRACESERVER_HPP
 #define COMTRACESERVER_HPP
 
+#include <COM/InprocServer.hpp>
+#include <COM/ServerRegInfo.hpp>
 #include "TypeLibrary_h.h"
+#include "CustomTracer.hpp"
+#include "DispatchTracer.hpp"
+#include "DualTracer.hpp"
 
 ////////////////////////////////////////////////////////////////////////////////
 //! The COM server concrete class.
