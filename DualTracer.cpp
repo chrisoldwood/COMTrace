@@ -3,9 +3,9 @@
 //! \brief  The DualTracer class definition.
 //! \author Chris Oldwood
 
-#include "AppHeaders.hpp"
+#include "COMTrace.hpp"
+#include "DualTracer.hpp"
 #include <atlconv.h>
-#include "Interfaces_h.h"
 
 #ifdef _DEBUG
 // For memory leak detection.
@@ -41,12 +41,12 @@ HRESULT COMCALL DualTracer::TestMethod(BSTR bstrInput, BSTR* pbstrOutput)
 	{
 		// Check output parameters.
 		if (pbstrOutput == nullptr)
-			throw E_POINTER;
+			throw WCL::ComException(E_POINTER, "pbstrOutput is NULL");
 
 		// Reverse the input string.
 		*pbstrOutput = _wcsrev(::SysAllocString(bstrInput));
 	}
-	COM_CATCH_TRACE_AND_SET("DualTracer::TestMethod()", hr)
+	COM_CATCH(hr)
 
 	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
 
@@ -66,11 +66,11 @@ HRESULT COMCALL DualTracer::GetTypeInfoCount(UINT* pnInfo)
 	{
 		// Check output parameters.
 		if (pnInfo == nullptr)
-			throw E_POINTER;
+			throw WCL::ComException(E_POINTER, "pnInfo is NULL");
 
 		*pnInfo = 1;
 	}
-	COM_CATCH_TRACE_AND_SET("DualTracer::GetTypeInfoCount()", hr)
+	COM_CATCH(hr)
 
 	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
 
@@ -90,29 +90,9 @@ HRESULT COMCALL DualTracer::GetTypeInfo(UINT nInfo, LCID dwLCID, ITypeInfo** ppT
 
 	try
 	{
-/*
-		// Check output parameters.
-		if (ppTypeInfo == nullptr)
-			throw E_POINTER;
-
-		// Reset output parameters.
-		*ppTypeInfo = nullptr;
-
-		// Validate parameters.
-		if (nInfo != 0)
-			throw DISP_E_BADINDEX;
-
-		// Load on first request.
-		if (m_pTypeLib.Get() ==  nullptr || m_pTypeInfo.Get() == nullptr)
-			LoadTypeInfo();
-
-		m_pTypeInfo->AddRef();
-
-		*ppTypeInfo = m_pTypeInfo.Get();
-*/
 		hr = COM::IDispatchImpl<DualTracer>::GetTypeInfo(nInfo, dwLCID, ppTypeInfo);
 	}
-	COM_CATCH_TRACE_AND_SET("DualTracer::GetTypeInfo()", hr)
+	COM_CATCH(hr)
 
 	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
 
@@ -136,16 +116,9 @@ HRESULT COMCALL DualTracer::GetIDsOfNames(REFIID rIID, LPOLESTR* aszNames, UINT 
 
 	try
 	{
-/*
-		// Load on first request.
-		if (m_pTypeLib.Get() ==  nullptr || m_pTypeInfo.Get() == nullptr)
-			LoadTypeInfo();
-
-		hr = m_pTypeInfo->GetIDsOfNames(aszNames, nNames, alMemberIDs);
-*/
 		hr = COM::IDispatchImpl<DualTracer>::GetIDsOfNames(rIID, aszNames, nNames, dwLCID, alMemberIDs);
 	}
-	COM_CATCH_TRACE_AND_SET("DualTracer::GetIDsOfNames()", hr)
+	COM_CATCH(hr)
 
 	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
 
@@ -166,38 +139,11 @@ HRESULT COMCALL DualTracer::Invoke(DISPID lMemberID, REFIID rIID, LCID dwLCID, W
 
 	try
 	{
-/*
-		// Load on first request.
-		if (m_pTypeLib.Get() ==  nullptr || m_pTypeInfo.Get() == nullptr)
-			LoadTypeInfo();
-
-		hr = m_pTypeInfo->Invoke(static_cast<IDispatch*>(this), lMemberID, wFlags, pParams, pResult, pExcepInfo, pnArgError);
-*/
 		hr = COM::IDispatchImpl<DualTracer>::Invoke(lMemberID, rIID, dwLCID, wFlags, pParams, pResult, pExcepInfo, pnArgError);
 	}
-	COM_CATCH_TRACE_AND_SET("DualTracer::Invoke()", hr)
+	COM_CATCH(hr)
 
 	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
 
 	return hr;
 }
-/*
-////////////////////////////////////////////////////////////////////////////////
-//! Load the type information.
-
-void DualTracer::LoadTypeInfo()
-{
-	// Load the type library..
-	if (m_pTypeLib.Get() == nullptr)
-		m_pTypeLib = COM::Server::This().LoadTypeLibrary();
-
-	// Retrieve the type info for the interface.
-	if (m_pTypeInfo.Get() == nullptr)
-	{
-		HRESULT hr = m_pTypeLib->GetTypeInfoOfGuid(IID_IDualInterface, AttachTo(m_pTypeInfo));
-
-		if (FAILED(hr))
-			throw WCL::ComException(hr, CString::Fmt("Failed to get the type information for '%s'", "IID_IDualInterface"));
-	}
-}
-*/

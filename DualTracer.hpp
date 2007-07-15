@@ -7,6 +7,8 @@
 #ifndef DUALTRACER_HPP
 #define DUALTRACER_HPP
 
+#include <COM/IDispatchImpl.hpp>
+
 #if _MSC_VER > 1000
 #pragma once
 #endif
@@ -53,24 +55,6 @@ public:
 
 	//! Invoke a method or access a property.
 	virtual HRESULT COMCALL Invoke(DISPID lMemberID, REFIID rIID, LCID dwLCID, WORD wFlags, DISPPARAMS* pParams, VARIANT* pResult, EXCEPINFO* pExcepInfo, UINT* pnArgError);
-
-private:
-	// Type shorthands.
-//	typedef Core::IFacePtr<ITypeLib>  ITypeLibPtr;
-//	typedef Core::IFacePtr<ITypeInfo> ITypeInfoPtr;
-
-	//
-	// Members.
-	//
-//	ITypeLibPtr		m_pTypeLib;		//!< The type library.
-//	ITypeInfoPtr	m_pTypeInfo;	//!< The interface type information.
-
-	//
-	// Internal methods.
-	//
-
-	//! Load the type information.
-//	void LoadTypeInfo();	// throw(ComException)
 };
 
 #endif // DUALTRACER_HPP
