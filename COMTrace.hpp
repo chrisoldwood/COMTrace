@@ -1,39 +1,32 @@
 ////////////////////////////////////////////////////////////////////////////////
-//! \file   AppHeaders.hpp
-//! \brief  Wrapper include file for all the core headers.
+//! \file   COMTrace.hpp
+//! \brief  Wrapper include file for all the most common header files.
 //! \author Chris Oldwood
 
 // Check for previous inclusion
-#ifndef APPHEADERS_HPP
-#define APPHEADERS_HPP
+#ifndef COMTRACE_HPP
+#define COMTRACE_HPP
 
 #if _MSC_VER > 1000
 #pragma once
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////
-// Application documentation
+// Application documentation.
 //
-//! \namespace COMTraceLib
-//! \brief     The type library namespace.
 
 ////////////////////////////////////////////////////////////////////////////////
-// System headers
+// System headers.
 
 #include <Core/Common.hpp>		// Core library common headers.
-#include <WCL/wcl.hpp>			// Windows C++ library.
-#include <COM/COM.hpp>			// COM library.
+#include <WCL/Common.hpp>		// Windows C++ library common headers.
+#include <COM/Common.hpp>		// COM library common headers.
 
 ////////////////////////////////////////////////////////////////////////////////
-// Application headers
+// Application common headers.
 
 #include "Interfaces_h.h"
 #include "Logger.hpp"
 #include "COMTraceObject.hpp"
-#include "CustomTracer.hpp"
-#include "DispatchTracer.hpp"
-#include "DualTracer.hpp"
-#include "COMTraceServer.hpp"
-#include "COMTraceFactory.hpp"
 
-#endif // APPHEADERS_HPP
+#endif // COMTRACE_HPP
