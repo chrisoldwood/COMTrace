@@ -1,0 +1,5 @@
+- Add a property.
+
+- Register my custom interface so at least I can see the name.
+
+- Handle IMarshal and do proxy for marshal by value.
