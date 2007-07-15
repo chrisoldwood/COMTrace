@@ -7,6 +7,8 @@
 #ifndef COMTRACEOBJECT_HPP
 #define COMTRACEOBJECT_HPP
 
+#include <COM/ComUtils.hpp>
+
 #if _MSC_VER > 1000
 #pragma once
 #endif
@@ -36,6 +38,13 @@ public:
     
 	//! Decrement the objects reference count.
 	virtual ULONG ReleaseImpl();
+
+	//
+	// ISupportErrorInfo methods.
+	//
+
+	//! Queries if the interface supports COM exceptiopns.
+	virtual HRESULT InterfaceSupportsErrorInfoImpl(const IID& rIID);
 
 private:
 	//
@@ -108,6 +117,25 @@ inline ULONG COMTraceObject<T>::ReleaseImpl()
 	LOG_EXIT ("ULONG=%u", nRefCount);
 
 	return nRefCount;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//! Queries if the interface supports COM exceptiopns.
+
+template<typename T>
+inline HRESULT COMTraceObject<T>::InterfaceSupportsErrorInfoImpl(const IID& rIID)
+{
+	std::tstring strIID       = COM::FormatGUID(rIID);
+	std::tstring strIFaceName = COM::LookupIID(rIID);
+
+	LOG_ENTRY("%s::InterfaceSupportsErrorInfoImpl()", m_strClass.c_str());
+	LOG_PARAM("IID=%s [%s]", strIID.c_str(), strIFaceName.c_str());
+
+	HRESULT hr = COM::ObjectBase<T>::InterfaceSupportsErrorInfoImpl(rIID);
+
+	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
+
+	return hr;
 }
 
 #endif // COMTRACEOBJECT_HPP
