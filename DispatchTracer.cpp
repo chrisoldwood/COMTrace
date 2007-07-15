@@ -3,7 +3,10 @@
 //! \brief  The DispatchTracer class definition.
 //! \author Chris Oldwood
 
-#include "AppHeaders.hpp"
+#include "COMTrace.hpp"
+#include "DispatchTracer.hpp"
+#include <atlconv.h>
+#include <WCL/Variant.hpp>
 
 #ifdef _DEBUG
 // For memory leak detection.
@@ -48,11 +51,11 @@ HRESULT COMCALL DispatchTracer::GetTypeInfoCount(UINT* pnInfo)
 	{
 		// Check output parameters.
 		if (pnInfo == nullptr)
-			throw E_POINTER;
+			throw WCL::ComException(E_POINTER, "pnInfo is NULL");
 
 		*pnInfo = 0;
 	}
-	COM_CATCH_TRACE_AND_SET("DispatchTracer::GetTypeInfoCount()", hr)
+	COM_CATCH(hr)
 
 	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
 
@@ -76,12 +79,12 @@ HRESULT COMCALL DispatchTracer::GetTypeInfo(UINT nInfo, LCID dwLCID, ITypeInfo**
 	{
 		// Check output parameters.
 		if (ppTypeInfo == nullptr)
-			throw E_POINTER;
+			throw WCL::ComException(E_POINTER, "ppTypeInfo is NULL");
 
 		// Reset output parameters.
 		*ppTypeInfo = nullptr;
 	}
-	COM_CATCH_TRACE_AND_SET("DispatchTracer::GetTypeInfo()", hr)
+	COM_CATCH(hr)
 
 	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
 
@@ -107,11 +110,11 @@ HRESULT COMCALL DispatchTracer::GetIDsOfNames(REFIID /*rIID*/, LPOLESTR* aszName
 	{
 		// Check output parameters.
 		if (alMemberIDs == nullptr)
-			throw E_POINTER;
+			throw WCL::ComException(E_POINTER, "alMemberIDs is NULL");
 
 		// Validate input parameters.
 		if (nNames == 0)
-			throw E_INVALIDARG;
+			throw WCL::ComException(E_INVALIDARG, "aszNames is empty");
 
 		// Initialise output DISPID array.
 		for (size_t i = 0; i < nNames; ++i)
@@ -127,7 +130,7 @@ HRESULT COMCALL DispatchTracer::GetIDsOfNames(REFIID /*rIID*/, LPOLESTR* aszName
 				hr = S_OK;
 		}
 	}
-	COM_CATCH_TRACE_AND_SET("DispatchTracer::GetIDsOfNames()", hr)
+	COM_CATCH(hr)
 
 	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
 
@@ -153,29 +156,29 @@ HRESULT COMCALL DispatchTracer::Invoke(DISPID lMemberID, REFIID /*rIID*/, LCID /
 	{
 		// Check output parameters.
 		if ( (pResult == nullptr) || (pExcepInfo == nullptr) || (pnArgError == nullptr) )
-			throw E_POINTER;
+			throw WCL::ComException(E_POINTER, "pResult/pExcepInfo/pnArgError is NULL");
 
 		// Validate input parameters.
 		if (pParams == nullptr)
-			throw E_POINTER;
+			throw WCL::ComException(E_POINTER, "pParams is NULL");
 
 		// Reset output parameters.
 //		::VariantInit(pResult);
 
 		// Validate DISPID.
 		if (lMemberID != ID_TESTMETHOD)
-			throw DISP_E_MEMBERNOTFOUND;
+			throw WCL::ComException(DISP_E_MEMBERNOTFOUND, "lMemberID must be ID_TESTMETHOD");
 
 		// Validate call type.
 		if (!(wFlags & DISPATCH_METHOD))
-			throw DISP_E_MEMBERNOTFOUND;
+			throw WCL::ComException(DISP_E_MEMBERNOTFOUND, "wFlags must contain DISPATCH_METHOD");
 
 		// Validate parameters.
 		if (pParams->cArgs != 1)
-			throw DISP_E_BADPARAMCOUNT;
+			throw WCL::ComException(DISP_E_BADPARAMCOUNT, "pParams->cArgs must be 1");
 
 		if (pParams->cNamedArgs != 0)
-			throw DISP_E_NONAMEDARGS;
+			throw WCL::ComException(DISP_E_NONAMEDARGS, "pParams->cNamedArgs must be 0");
 
 		// Coerce parameters.
 		WCL::Variant vtParam(pParams->rgvarg[0], VT_BSTR);
@@ -186,7 +189,7 @@ HRESULT COMCALL DispatchTracer::Invoke(DISPID lMemberID, REFIID /*rIID*/, LCID /
 
 		hr = S_OK;
 	}
-	COM_CATCH_TRACE_AND_SET("DispatchTracer::Invoke()", hr)
+	COM_CATCH(hr)
 
 	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
 

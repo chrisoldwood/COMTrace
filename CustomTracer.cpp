@@ -3,7 +3,8 @@
 //! \brief  The CustomTracer class definition.
 //! \author Chris Oldwood
 
-#include "AppHeaders.hpp"
+#include "COMTrace.hpp"
+#include "CustomTracer.hpp"
 
 #ifdef _DEBUG
 // For memory leak detection.
@@ -38,12 +39,12 @@ HRESULT COMCALL CustomTracer::TestMethod(BSTR bstrInput, BSTR* pbstrOutput)
 	{
 		// Check output parameters.
 		if (pbstrOutput == nullptr)
-			throw E_POINTER;
+			throw WCL::ComException(E_POINTER, "pbstrOutput is NULL");
 
 		// Reverse the input string.
 		*pbstrOutput = _wcsrev(::SysAllocString(bstrInput));
 	}
-	COM_CATCH_TRACE_AND_SET("CustomTracer::TestMethod()", hr)
+	COM_CATCH(hr)
 
 	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
 
