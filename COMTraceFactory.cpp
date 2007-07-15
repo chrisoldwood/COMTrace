@@ -3,8 +3,9 @@
 //! \brief  The COMTraceFactory class definition.
 //! \author Chris Oldwood
 
-#include "AppHeaders.hpp"
-#include "TypeLibrary_h.h"
+#include "COMTrace.hpp"
+#include "COMTraceFactory.hpp"
+#include <COM/InprocServer.hpp>
 
 #ifdef _DEBUG
 // For memory leak detection.

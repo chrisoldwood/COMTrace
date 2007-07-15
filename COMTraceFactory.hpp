@@ -7,6 +7,9 @@
 #ifndef COMTRACEFACTORY_HPP
 #define COMTRACEFACTORY_HPP
 
+#include <COM/ClassFactory.hpp>
+#include <WCL/ComPtr.hpp>
+
 #if _MSC_VER > 1000
 #pragma once
 #endif
