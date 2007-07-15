@@ -31,7 +31,8 @@
 				RuntimeLibrary="1"
 				ForceConformanceInForLoopScope="TRUE"
 				RuntimeTypeInfo="TRUE"
-				UsePrecompiledHeader="0"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="COMTrace.hpp"
 				WarningLevel="4"
 				WarnAsError="TRUE"
 				DebugInformationFormat="4"/>
@@ -87,7 +88,8 @@
 				RuntimeLibrary="0"
 				ForceConformanceInForLoopScope="TRUE"
 				RuntimeTypeInfo="TRUE"
-				UsePrecompiledHeader="0"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="COMTrace.hpp"
 				WarningLevel="4"
 				WarnAsError="TRUE"
 				DebugInformationFormat="3"/>
@@ -172,7 +174,7 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
 			<File
-				RelativePath=".\AppHeaders.hpp">
+				RelativePath=".\COMTrace.hpp">
 			</File>
 			<File
 				RelativePath=".\COMTraceFactory.hpp">
@@ -210,10 +212,10 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}">
 			<File
-				RelativePath=".\App.rcv">
+				RelativePath=".\COMTrace.rc">
 			</File>
 			<File
-				RelativePath=".\COMTrace.rc">
+				RelativePath=".\Module.rcv">
 			</File>
 		</Filter>
 		<File
