@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 //! \author Chris Oldwood
-//! \file   App.rcv
+//! \file   Module.rcv
 //! \brief  The version information resource.
 
 #include <winver.h>
@@ -24,7 +24,7 @@ BEGIN
 		BEGIN
 			VALUE "FileDescription",  "COMTrace Inproc Server\0"
 			VALUE "FileVersion",      "1.0\0"
-			VALUE "InternalName",     "COMTrace.exe\0"
+			VALUE "InternalName",     "COMTrace.dll\0"
 			VALUE "LegalCopyright",   "(C) Chris Oldwood 2007\0"
 			VALUE "OriginalFilename", "COMTrace.dll\0"
 			VALUE "ProductName",      "COMTrace\0"
