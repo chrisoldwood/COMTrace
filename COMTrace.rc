@@ -8,9 +8,9 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #define APSTUDIO_HIDDEN_SYMBOLS
-#include "windows.h"
+#include <windows.h>
 #undef APSTUDIO_HIDDEN_SYMBOLS
-#include "WCL/WclRsc.h"
+#include <WCL/WclRsc.h>
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
@@ -38,15 +38,15 @@ END
 2 TEXTINCLUDE 
 BEGIN
     "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
-    "#include ""windows.h""\r\n"
+    "#include <windows.h>\r\n"
     "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
-    "#include ""WCL/WclRsc.h""\r\n"
+    "#include <WCL/WclRsc.h>\r\n"
     "\0"
 END
 
 3 TEXTINCLUDE 
 BEGIN
-    "#include ""Module.rcv""\r\n"
+    "#include ""Dll.rcv""\r\n"
     "\0"
 END
 
@@ -69,7 +69,7 @@ IDR_TYPELIB             TYPELIB                 "COMTrace.tlb"
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#include "Module.rcv"
+#include "Dll.rcv"
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
