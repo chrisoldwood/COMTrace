@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
+//! \file   Dll.rcv
+//! \brief  The DLL version information resource.
 //! \author Chris Oldwood
-//! \file   Module.rcv
-//! \brief  The version information resource.
 
 #include <winver.h>
 
@@ -16,7 +16,7 @@ FILEFLAGS		0
 #endif
 FILEOS			VOS__WINDOWS32
 FILETYPE		VFT_DLL
-FILESUBTYPE		VFT_UNKNOWN
+FILESUBTYPE		0
 BEGIN
 	BLOCK "StringFileInfo"
 	BEGIN
