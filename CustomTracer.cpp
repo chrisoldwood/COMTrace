@@ -42,7 +42,7 @@ HRESULT COMCALL CustomTracer::TestMethod(BSTR bstrInput, BSTR* pbstrOutput)
 			throw WCL::ComException(E_POINTER, "pbstrOutput is NULL");
 
 		// Reverse the input string.
-		*pbstrOutput = _wcsrev(::SysAllocString(bstrInput));
+		*pbstrOutput = _wcsrev(::SysAllocString(BSTR2W(bstrInput)));
 	}
 	COM_CATCH(hr)
 

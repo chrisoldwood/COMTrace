@@ -5,7 +5,6 @@
 
 #include "COMTrace.hpp"
 #include "DispatchTracer.hpp"
-#include <atlconv.h>
 #include <WCL/Variant.hpp>
 
 #ifdef _DEBUG
@@ -34,7 +33,7 @@ DispatchTracer::~DispatchTracer()
 BSTR DispatchTracer::TestMethod(BSTR bstrInput)
 {
 	// Reverse the input string.
-	return _wcsrev(::SysAllocString(bstrInput));
+	return _wcsrev(::SysAllocString(BSTR2W(bstrInput)));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -67,8 +66,6 @@ HRESULT COMCALL DispatchTracer::GetTypeInfoCount(UINT* pnInfo)
 
 HRESULT COMCALL DispatchTracer::GetTypeInfo(UINT nInfo, LCID dwLCID, ITypeInfo** ppTypeInfo)
 {
-	USES_CONVERSION;
-
 	LOG_ENTRY("DispatchTracer::GetTypeInfoCount(UINT, dwLCID)");
 	LOG_PARAM("UINT=%u", nInfo);
 	LOG_PARAM("dwLCID=%u", dwLCID);
@@ -96,8 +93,6 @@ HRESULT COMCALL DispatchTracer::GetTypeInfo(UINT nInfo, LCID dwLCID, ITypeInfo**
 
 HRESULT COMCALL DispatchTracer::GetIDsOfNames(REFIID /*rIID*/, LPOLESTR* aszNames, UINT nNames, LCID /*dwLCID*/, DISPID* alMemberIDs)
 {
-	USES_CONVERSION;
-
 	LOG_ENTRY("DispatchTracer::GetIDsOfNames(REFIID, LPOLESTR*, UINT, LCID, DISPID*)");
 	LOG_PARAM("UINT=%u", nNames);
 

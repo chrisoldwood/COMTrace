@@ -5,7 +5,6 @@
 
 #include "COMTrace.hpp"
 #include "DualTracer.hpp"
-#include <atlconv.h>
 
 #ifdef _DEBUG
 // For memory leak detection.
@@ -44,7 +43,7 @@ HRESULT COMCALL DualTracer::TestMethod(BSTR bstrInput, BSTR* pbstrOutput)
 			throw WCL::ComException(E_POINTER, "pbstrOutput is NULL");
 
 		// Reverse the input string.
-		*pbstrOutput = _wcsrev(::SysAllocString(bstrInput));
+		*pbstrOutput = _wcsrev(::SysAllocString(BSTR2W(bstrInput)));
 	}
 	COM_CATCH(hr)
 
@@ -104,8 +103,6 @@ HRESULT COMCALL DualTracer::GetTypeInfo(UINT nInfo, LCID dwLCID, ITypeInfo** ppT
 
 HRESULT COMCALL DualTracer::GetIDsOfNames(REFIID rIID, LPOLESTR* aszNames, UINT nNames, LCID dwLCID, DISPID* alMemberIDs)
 {
-	USES_CONVERSION;
-
 	LOG_ENTRY("DualTracer::GetIDsOfNames(REFIID, LPOLESTR*, UINT, LCID, DISPID*)");
 	LOG_PARAM("UINT=%u", nNames);
 
