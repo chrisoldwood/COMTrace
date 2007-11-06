@@ -3,15 +3,10 @@
 //! \brief  The COMTraceServer class definition.
 //! \author Chris Oldwood
 
-#include "COMTrace.hpp"
+#include "Common.hpp"
 #include "COMTraceServer.hpp"
 #include "COMTraceFactory.hpp"
 #include <WCL/File.hpp>
-
-#ifdef _DEBUG
-// For memory leak detection.
-#define new DBGCRT_NEW
-#endif
 
 //! The component object.
 COMTraceServer g_oDll;

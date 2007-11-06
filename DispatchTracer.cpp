@@ -3,14 +3,9 @@
 //! \brief  The DispatchTracer class definition.
 //! \author Chris Oldwood
 
-#include "COMTrace.hpp"
+#include "Common.hpp"
 #include "DispatchTracer.hpp"
 #include <WCL/Variant.hpp>
-
-#ifdef _DEBUG
-// For memory leak detection.
-#define new DBGCRT_NEW
-#endif
 
 ////////////////////////////////////////////////////////////////////////////////
 //! Default constructor.

@@ -3,13 +3,8 @@
 //! \brief  The CustomTracer class definition.
 //! \author Chris Oldwood
 
-#include "COMTrace.hpp"
+#include "Common.hpp"
 #include "CustomTracer.hpp"
-
-#ifdef _DEBUG
-// For memory leak detection.
-#define new DBGCRT_NEW
-#endif
 
 ////////////////////////////////////////////////////////////////////////////////
 //! Default constructor.

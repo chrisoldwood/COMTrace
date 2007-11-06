@@ -3,14 +3,9 @@
 //! \brief  The COMTraceFactory class definition.
 //! \author Chris Oldwood
 
-#include "COMTrace.hpp"
+#include "Common.hpp"
 #include "COMTraceFactory.hpp"
 #include <COM/InprocServer.hpp>
-
-#ifdef _DEBUG
-// For memory leak detection.
-#define new DBGCRT_NEW
-#endif
 
 ////////////////////////////////////////////////////////////////////////////////
 //! Default constructor.

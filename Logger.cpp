@@ -3,12 +3,7 @@
 //! \brief  The Logger class definition.
 //! \author Chris Oldwood
 
-#include "COMTrace.hpp"
-
-#ifdef _DEBUG
-// For memory leak detection.
-#define new DBGCRT_NEW
-#endif
+#include "Common.hpp"
 
 //! The number of chars to ident functions by.
 const size_t FUNC_INDENT = 4;
