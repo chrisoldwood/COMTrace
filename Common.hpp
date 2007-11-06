@@ -1,11 +1,11 @@
 ////////////////////////////////////////////////////////////////////////////////
-//! \file   COMTrace.hpp
+//! \file   Common.hpp
 //! \brief  Wrapper include file for all the most common header files.
 //! \author Chris Oldwood
 
 // Check for previous inclusion
-#ifndef COMTRACE_HPP
-#define COMTRACE_HPP
+#ifndef APP_COMMON_HPP
+#define APP_COMMON_HPP
 
 #if _MSC_VER > 1000
 #pragma once
@@ -29,4 +29,4 @@
 #include "Logger.hpp"
 #include "COMTraceObject.hpp"
 
-#endif // COMTRACE_HPP
+#endif // APP_COMMON_HPP
