@@ -111,7 +111,7 @@ HRESULT COMCALL DispatchTracer::GetIDsOfNames(REFIID /*rIID*/, LPOLESTR* aszName
 			alMemberIDs[i] = DISPID_UNKNOWN;
 
 		// The first name must be the method or property name.
-		if (wcsicmp(aszNames[0], L"TestMethod") == 0)
+		if (_wcsicmp(aszNames[0], L"TestMethod") == 0)
 		{
 			alMemberIDs[0] = ID_TESTMETHOD;
 

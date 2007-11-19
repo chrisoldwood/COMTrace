@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include <tchar.h>
 #include <WCL/ComPtr.hpp>
 #include <WCL/StrCvt.hpp>
 #include <WCL/Variant.hpp>
@@ -78,7 +79,7 @@ void TestDualInterface()
 		wchar_t* apszMethods[1] = { L"TestMethod" };
 		DISPID   anMethodIDs[1];
 
-		HRESULT hr = pTracer->GetIDsOfNames(IID_NULL, apszMethods, ARRAYSIZE(apszMethods), 0, anMethodIDs);
+		HRESULT hr = pTracer->GetIDsOfNames(IID_NULL, apszMethods, ARRAY_SIZE(apszMethods), 0, anMethodIDs);
 
 		if (SUCCEEDED(hr))
 		{
@@ -134,7 +135,7 @@ void TestDispatchInterface()
 		wchar_t* apszMethods[1] = { L"TestMethod" };
 		DISPID   anMethodIDs[1];
 
-		HRESULT hr = pTracer->GetIDsOfNames(IID_NULL, apszMethods, ARRAYSIZE(apszMethods), 0, anMethodIDs);
+		HRESULT hr = pTracer->GetIDsOfNames(IID_NULL, apszMethods, ARRAY_SIZE(apszMethods), 0, anMethodIDs);
 
 		if (SUCCEEDED(hr))
 		{
@@ -212,7 +213,7 @@ void TestErrorInfo()
 	}
 }
 
-int _tmain(int /*argc*/, _TCHAR* /*argv*/[])
+int _tmain(int /*argc*/, tchar* /*argv*/[])
 {
 	WCL::AutoCom oCom(COINIT_APARTMENTTHREADED);
 //	WCL::AutoCom oCom(COINIT_MULTITHREADED);
