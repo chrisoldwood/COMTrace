@@ -19,7 +19,7 @@
 			OutputDirectory="Debug"
 			IntermediateDirectory="Debug"
 			ConfigurationType="1"
-			CharacterSet="2">
+			CharacterSet="1">
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/EHa"
@@ -73,7 +73,7 @@
 			OutputDirectory="Release"
 			IntermediateDirectory="Release"
 			ConfigurationType="1"
-			CharacterSet="2">
+			CharacterSet="1">
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/EHa"
@@ -154,6 +154,21 @@
 			</File>
 			<File
 				RelativePath=".\Test.cpp">
+			</File>
+			<File
+				RelativePath=".\TestComPtr.cpp">
+			</File>
+			<File
+				RelativePath=".\TestCustom.cpp">
+			</File>
+			<File
+				RelativePath=".\TestDispatch.cpp">
+			</File>
+			<File
+				RelativePath=".\TestDual.cpp">
+			</File>
+			<File
+				RelativePath=".\TestErrorInfo.cpp">
 			</File>
 		</Filter>
 		<Filter
