@@ -79,12 +79,12 @@ inline HRESULT COMTraceObject<T>::QueryInterfaceImpl(const IID& rIID, void** ppI
 	std::tstring strIID       = COM::FormatGUID(rIID);
 	std::tstring strIFaceName = COM::LookupIID(rIID);
 
-	LOG_ENTRY("%s::QueryInterface(IID)", m_strClass.c_str());
-	LOG_PARAM("IID=%s [%s]", strIID.c_str(), strIFaceName.c_str());
+	LOG_ENTRY(TXT("%s::QueryInterface(IID)"), m_strClass.c_str());
+	LOG_PARAM(TXT("IID=%s [%s]"), strIID.c_str(), strIFaceName.c_str());
 
 	HRESULT hr = COM::ObjectBase<T>::QueryInterfaceImpl(rIID, ppInterface);
 
-	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
 
 	return hr;
 }
@@ -95,11 +95,11 @@ inline HRESULT COMTraceObject<T>::QueryInterfaceImpl(const IID& rIID, void** ppI
 template<typename T>
 inline ULONG COMTraceObject<T>::AddRefImpl()
 {
-	LOG_ENTRY("%s::AddRef()", m_strClass.c_str());
+	LOG_ENTRY(TXT("%s::AddRef()"), m_strClass.c_str());
 
 	ULONG nRefCount = COM::ObjectBase<T>::AddRefImpl();
 
-	LOG_EXIT ("ULONG=%u", nRefCount);
+	LOG_EXIT (TXT("ULONG=%u"), nRefCount);
 
 	return nRefCount;
 }
@@ -110,11 +110,11 @@ inline ULONG COMTraceObject<T>::AddRefImpl()
 template<typename T>
 inline ULONG COMTraceObject<T>::ReleaseImpl()
 {
-	LOG_ENTRY("%s::Release()", m_strClass.c_str());
+	LOG_ENTRY(TXT("%s::Release()"), m_strClass.c_str());
 
 	ULONG nRefCount = COM::ObjectBase<T>::ReleaseImpl();
 
-	LOG_EXIT ("ULONG=%u", nRefCount);
+	LOG_EXIT (TXT("ULONG=%u"), nRefCount);
 
 	return nRefCount;
 }
@@ -128,12 +128,12 @@ inline HRESULT COMTraceObject<T>::InterfaceSupportsErrorInfoImpl(const IID& rIID
 	std::tstring strIID       = COM::FormatGUID(rIID);
 	std::tstring strIFaceName = COM::LookupIID(rIID);
 
-	LOG_ENTRY("%s::InterfaceSupportsErrorInfoImpl()", m_strClass.c_str());
-	LOG_PARAM("IID=%s [%s]", strIID.c_str(), strIFaceName.c_str());
+	LOG_ENTRY(TXT("%s::InterfaceSupportsErrorInfoImpl()"), m_strClass.c_str());
+	LOG_PARAM(TXT("IID=%s [%s]"), strIID.c_str(), strIFaceName.c_str());
 
 	HRESULT hr = COM::ObjectBase<T>::InterfaceSupportsErrorInfoImpl(rIID);
 
-	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
 
 	return hr;
 }

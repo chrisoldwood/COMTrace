@@ -30,16 +30,16 @@ COMTraceServer::~COMTraceServer()
 
 void COMTraceServer::OnLoad()
 {
-	CPath strFile = CPath::ModuleDir() / "COMTrace.log";
+	CPath strFile = CPath::ModuleDir() / TXT("COMTrace.log");
 
 	// Initialise the logger.
 	// NB: We have to do it after the CModule singleton has been initialised.
 	g_oLogger.SetFilename(std::tstring(strFile));
 	CFile::Delete(strFile);
 
-	LOG_MSG  ("************************************************************");
-	LOG_ENTRY("COMTraceServer::OnLoad()");
-	LOG_EXIT ("VOID");
+	LOG_MSG  (TXT("************************************************************"));
+	LOG_ENTRY(TXT("COMTraceServer::OnLoad()"));
+	LOG_EXIT (TXT("VOID"));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -47,8 +47,8 @@ void COMTraceServer::OnLoad()
 
 void COMTraceServer::OnUnload()
 {
-	LOG_ENTRY("COMTraceServer::OnUnload()");
-	LOG_EXIT ("VOID");
+	LOG_ENTRY(TXT("COMTraceServer::OnUnload()"));
+	LOG_EXIT (TXT("VOID"));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -56,8 +56,8 @@ void COMTraceServer::OnUnload()
 
 void COMTraceServer::OnThreadAttached()
 {
-	LOG_ENTRY("COMTraceServer::OnThreadAttached()");
-	LOG_EXIT ("VOID");
+	LOG_ENTRY(TXT("COMTraceServer::OnThreadAttached()"));
+	LOG_EXIT (TXT("VOID"));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -65,8 +65,8 @@ void COMTraceServer::OnThreadAttached()
 
 void COMTraceServer::OnThreadDetached()
 {
-	LOG_ENTRY("COMTraceServer::OnThreadDetached()");
-	LOG_EXIT ("VOID");
+	LOG_ENTRY(TXT("COMTraceServer::OnThreadDetached()"));
+	LOG_EXIT (TXT("VOID"));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -79,13 +79,13 @@ HRESULT COMTraceServer::DllGetClassObject(REFCLSID rCLSID, REFIID rIID, LPVOID* 
 	std::tstring strIID       = COM::FormatGUID(rIID);
 	std::tstring strIFaceName = COM::LookupIID(rIID);
 
-	LOG_ENTRY("COMTraceServer::DllGetClassObject(CLSID, IID)");
-	LOG_PARAM("CLSID=%s [%s]", strCLSID.c_str(), strClassName.c_str());
-	LOG_PARAM("IID=%s [%s]",   strIID.c_str(),   strIFaceName.c_str());
+	LOG_ENTRY(TXT("COMTraceServer::DllGetClassObject(CLSID, IID)"));
+	LOG_PARAM(TXT("CLSID=%s [%s]"), strCLSID.c_str(), strClassName.c_str());
+	LOG_PARAM(TXT("IID=%s [%s]"),   strIID.c_str(),   strIFaceName.c_str());
 
 	HRESULT hr = InprocServer::DllGetClassObject(rCLSID, rIID, ppFactory);
 
-	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
 
 	return hr;
 }
@@ -95,12 +95,12 @@ HRESULT COMTraceServer::DllGetClassObject(REFCLSID rCLSID, REFIID rIID, LPVOID* 
 
 HRESULT COMTraceServer::DllCanUnloadNow()
 {
-	LOG_ENTRY("COMTraceServer::DllCanUnloadNow()");
-	LOG_VAR("LockCount=%u", LockCount());
+	LOG_ENTRY(TXT("COMTraceServer::DllCanUnloadNow()"));
+	LOG_VAR(TXT("LockCount=%u"), LockCount());
 
 	HRESULT hr = InprocServer::DllCanUnloadNow();
 
-	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
 
 	return hr;
 }
@@ -110,11 +110,11 @@ HRESULT COMTraceServer::DllCanUnloadNow()
 
 HRESULT COMTraceServer::DllRegisterServer()
 {
-	LOG_ENTRY("COMTraceServer::DllRegisterServer()");
+	LOG_ENTRY(TXT("COMTraceServer::DllRegisterServer()"));
 
 	HRESULT hr = InprocServer::DllRegisterServer();
 
-	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
 
 	return hr;
 }
@@ -124,11 +124,11 @@ HRESULT COMTraceServer::DllRegisterServer()
 
 HRESULT COMTraceServer::DllUnregisterServer()
 {
-	LOG_ENTRY("COMTraceServer::DllUnregisterServer()");
+	LOG_ENTRY(TXT("COMTraceServer::DllUnregisterServer()"));
 
 	HRESULT hr = InprocServer::DllUnregisterServer();
 
-	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
 
 	return hr;
 }
@@ -138,12 +138,12 @@ HRESULT COMTraceServer::DllUnregisterServer()
 
 void COMTraceServer::Lock()
 {
-	LOG_ENTRY("COMTraceServer::Lock()");
+	LOG_ENTRY(TXT("COMTraceServer::Lock()"));
 
 	Server::Lock();
 
-	LOG_VAR("LockCount=%u", LockCount());
-	LOG_EXIT ("VOID");
+	LOG_VAR(TXT("LockCount=%u"), LockCount());
+	LOG_EXIT(TXT("VOID"));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -151,12 +151,12 @@ void COMTraceServer::Lock()
 
 void COMTraceServer::Unlock()
 {
-	LOG_ENTRY("COMTraceServer::Unlock()");
+	LOG_ENTRY(TXT("COMTraceServer::Unlock()"));
 
 	Server::Unlock();
 
-	LOG_VAR("LockCount=%u", LockCount());
-	LOG_EXIT ("VOID");
+	LOG_VAR(TXT("LockCount=%u"), LockCount());
+	LOG_EXIT(TXT("VOID"));
 }
 
 ////////////////////////////////////////////////////////////////////////////////

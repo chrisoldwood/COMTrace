@@ -10,7 +10,7 @@
 //! Default constructor.
 
 DualTracer::DualTracer()
-	: COMTraceObject<IDualInterface>("DualTracer")
+	: COMTraceObject<IDualInterface>(TXT("DualTracer"))
 	, COM::IDispatchImpl<DualTracer>(IID_IDualInterface)
 {
 }
@@ -27,7 +27,7 @@ DualTracer::~DualTracer()
 
 HRESULT COMCALL DualTracer::TestMethod(BSTR bstrInput, BSTR* pbstrOutput)
 {
-	LOG_ENTRY("DualTracer::TestMethod()");
+	LOG_ENTRY(TXT("DualTracer::TestMethod()"));
 
 	HRESULT hr = S_OK;
 
@@ -35,14 +35,14 @@ HRESULT COMCALL DualTracer::TestMethod(BSTR bstrInput, BSTR* pbstrOutput)
 	{
 		// Check output parameters.
 		if (pbstrOutput == nullptr)
-			throw WCL::ComException(E_POINTER, "pbstrOutput is NULL");
+			throw WCL::ComException(E_POINTER, TXT("pbstrOutput is NULL"));
 
 		// Reverse the input string.
 		*pbstrOutput = _wcsrev(::SysAllocString(BSTR2W(bstrInput)));
 	}
 	COM_CATCH(hr)
 
-	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
 
 	return hr;
 }
@@ -52,7 +52,7 @@ HRESULT COMCALL DualTracer::TestMethod(BSTR bstrInput, BSTR* pbstrOutput)
 
 HRESULT COMCALL DualTracer::GetTypeInfoCount(UINT* pnInfo)
 {
-	LOG_ENTRY("DualTracer::GetTypeInfoCount(UINT*)");
+	LOG_ENTRY(TXT("DualTracer::GetTypeInfoCount(UINT*)"));
 
 	HRESULT hr = S_OK;
 
@@ -60,13 +60,13 @@ HRESULT COMCALL DualTracer::GetTypeInfoCount(UINT* pnInfo)
 	{
 		// Check output parameters.
 		if (pnInfo == nullptr)
-			throw WCL::ComException(E_POINTER, "pnInfo is NULL");
+			throw WCL::ComException(E_POINTER, TXT("pnInfo is NULL"));
 
 		*pnInfo = 1;
 	}
 	COM_CATCH(hr)
 
-	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
 
 	return hr;
 }
@@ -76,9 +76,9 @@ HRESULT COMCALL DualTracer::GetTypeInfoCount(UINT* pnInfo)
 
 HRESULT COMCALL DualTracer::GetTypeInfo(UINT nInfo, LCID dwLCID, ITypeInfo** ppTypeInfo)
 {
-	LOG_ENTRY("DualTracer::GetTypeInfoCount(UINT, dwLCID)");
-	LOG_PARAM("UINT=%u", nInfo);
-	LOG_PARAM("dwLCID=%u", dwLCID);
+	LOG_ENTRY(TXT("DualTracer::GetTypeInfoCount(UINT, dwLCID)"));
+	LOG_PARAM(TXT("UINT=%u"), nInfo);
+	LOG_PARAM(TXT("dwLCID=%u"), dwLCID);
 
 	HRESULT hr = S_OK;
 
@@ -88,7 +88,7 @@ HRESULT COMCALL DualTracer::GetTypeInfo(UINT nInfo, LCID dwLCID, ITypeInfo** ppT
 	}
 	COM_CATCH(hr)
 
-	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
 
 	return hr;
 }
@@ -98,11 +98,11 @@ HRESULT COMCALL DualTracer::GetTypeInfo(UINT nInfo, LCID dwLCID, ITypeInfo** ppT
 
 HRESULT COMCALL DualTracer::GetIDsOfNames(REFIID rIID, LPOLESTR* aszNames, UINT nNames, LCID dwLCID, DISPID* alMemberIDs)
 {
-	LOG_ENTRY("DualTracer::GetIDsOfNames(REFIID, LPOLESTR*, UINT, LCID, DISPID*)");
-	LOG_PARAM("UINT=%u", nNames);
+	LOG_ENTRY(TXT("DualTracer::GetIDsOfNames(REFIID, LPOLESTR*, UINT, LCID, DISPID*)"));
+	LOG_PARAM(TXT("UINT=%u"), nNames);
 
 	for (size_t i = 0; i < nNames; ++i)
-		LOG_PARAM("LPOLESTR*[%d]=%s", i, W2T(aszNames[i]));
+		LOG_PARAM(TXT("LPOLESTR*[%d]=%s"), i, W2T(aszNames[i]));
 
 	HRESULT hr = S_OK;
 
@@ -112,7 +112,7 @@ HRESULT COMCALL DualTracer::GetIDsOfNames(REFIID rIID, LPOLESTR* aszNames, UINT 
 	}
 	COM_CATCH(hr)
 
-	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
 
 	return hr;
 }
@@ -122,10 +122,10 @@ HRESULT COMCALL DualTracer::GetIDsOfNames(REFIID rIID, LPOLESTR* aszNames, UINT 
 
 HRESULT COMCALL DualTracer::Invoke(DISPID lMemberID, REFIID rIID, LCID dwLCID, WORD wFlags, DISPPARAMS* pParams, VARIANT* pResult, EXCEPINFO* pExcepInfo, UINT* pnArgError)
 {
-	LOG_ENTRY("DualTracer::Invoke(DISPID, REFIID, LCID, WORD, DISPPARAMS*, VARIANT*, EXCEPINFO*, UINT*)");
-	LOG_PARAM("DISPID=%d", lMemberID);
-	LOG_PARAM("WORD=0x%08X", static_cast<DWORD>(wFlags));
-	LOG_PARAM("DISPPARAMS*=%u %u", pParams->cArgs, pParams->cNamedArgs);
+	LOG_ENTRY(TXT("DualTracer::Invoke(DISPID, REFIID, LCID, WORD, DISPPARAMS*, VARIANT*, EXCEPINFO*, UINT*)"));
+	LOG_PARAM(TXT("DISPID=%d"), lMemberID);
+	LOG_PARAM(TXT("WORD=0x%08X"), static_cast<DWORD>(wFlags));
+	LOG_PARAM(TXT("DISPPARAMS*=%u %u"), pParams->cArgs, pParams->cNamedArgs);
 
 	HRESULT hr = S_OK;
 
@@ -135,7 +135,7 @@ HRESULT COMCALL DualTracer::Invoke(DISPID lMemberID, REFIID rIID, LCID dwLCID, W
 	}
 	COM_CATCH(hr)
 
-	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
 
 	return hr;
 }

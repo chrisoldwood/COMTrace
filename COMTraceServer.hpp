@@ -80,10 +80,10 @@ private:
 	//! Template Method to get the servers class factory.
 	virtual COM::IClassFactoryPtr CreateClassFactory(const CLSID& oCLSID);
 
-	DEFINE_REGISTRATION_TABLE("COMTrace", LIBID_COMTraceLib, 1, 0)
-		DEFINE_CLASS_REG_INFO(CLSID_CustomTracer,   "CustomTracer",   "1", COM::SINGLE_THREAD_APT)
-		DEFINE_CLASS_REG_INFO(CLSID_DispatchTracer, "DispatchTracer", "1", COM::SINGLE_THREAD_APT)
-		DEFINE_CLASS_REG_INFO(CLSID_DualTracer,     "DualTracer",     "1", COM::SINGLE_THREAD_APT)
+	DEFINE_REGISTRATION_TABLE(TXT("COMTrace"), LIBID_COMTraceLib, 1, 0)
+		DEFINE_CLASS_REG_INFO(CLSID_CustomTracer,   TXT("CustomTracer"),   TXT("1"), COM::SINGLE_THREAD_APT)
+		DEFINE_CLASS_REG_INFO(CLSID_DispatchTracer, TXT("DispatchTracer"), TXT("1"), COM::SINGLE_THREAD_APT)
+		DEFINE_CLASS_REG_INFO(CLSID_DualTracer,     TXT("DualTracer"),     TXT("1"), COM::SINGLE_THREAD_APT)
 	END_REGISTRATION_TABLE()
 
 	DEFINE_CLASS_FACTORY_TABLE()

@@ -36,16 +36,16 @@ public:
 	//
 
 	//! Write a non-functional message.
-	void LogRawMsg(const char* pszMsg, ...);
+	void LogRawMsg(const tchar* pszMsg, ...);
 
 	//! Write a function entry message.
-	void LogFnEntry(const char* pszMsg, ...);
+	void LogFnEntry(const tchar* pszMsg, ...);
 
 	//! Write a function parameter message.
-	void LogFnParam(const char* pszMsg, ...);
+	void LogFnParam(const tchar* pszMsg, ...);
 
 	//! Write a function exit message.
-	void LogFnExit(const char* pszMsg, ...);
+	void LogFnExit(const tchar* pszMsg, ...);
 
 	////////////////////////////////////////////////////////////////////////////
 	//! The helper class used to write the function result code. This is needed
@@ -75,7 +75,7 @@ private:
 	//
 
 	//! Write a message to the file.
-	void Write(const char* pszPrefix, const tchar* pszMsg);
+	void Write(const tchar* pszPrefix, const tchar* pszMsg);
 };
 
 ////////////////////////////////////////////////////////////////////////////////

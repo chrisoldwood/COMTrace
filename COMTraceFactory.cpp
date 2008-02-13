@@ -11,7 +11,7 @@
 //! Default constructor.
 
 COMTraceFactory::COMTraceFactory(const CLSID& rCLSID)
-	: COMTraceObject<IClassFactory>("COMTraceFactory")
+	: COMTraceObject<IClassFactory>(TXT("COMTraceFactory"))
 	, m_pClassFactory(new COM::ClassFactory(rCLSID), true)
 {
 }
@@ -31,13 +31,13 @@ HRESULT COMCALL COMTraceFactory::CreateInstance(IUnknown* pOuter, const IID& rII
 	std::tstring strIID       = COM::FormatGUID(rIID);
 	std::tstring strIFaceName = COM::LookupIID(rIID);
 
-	LOG_ENTRY("COMTraceFactory::CreateInstance(IUnknown*, IID)");
-	LOG_PARAM("IUnknown*=0x%p", pOuter);
-	LOG_PARAM("IID=%s [%s]", strIID.c_str(), strIFaceName.c_str());
+	LOG_ENTRY(TXT("COMTraceFactory::CreateInstance(IUnknown*, IID)"));
+	LOG_PARAM(TXT("IUnknown*=0x%p"), pOuter);
+	LOG_PARAM(TXT("IID=%s [%s]"), strIID.c_str(), strIFaceName.c_str());
 
 	HRESULT hr = m_pClassFactory->CreateInstance(pOuter, rIID, ppInterface);
 
-	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
 
 	return hr;
 }
@@ -47,12 +47,12 @@ HRESULT COMCALL COMTraceFactory::CreateInstance(IUnknown* pOuter, const IID& rII
 
 HRESULT COMCALL COMTraceFactory::LockServer(BOOL fLock)
 {
-	LOG_ENTRY("COMTraceFactory::LockServer(%s)", (fLock) ? "TRUE" : "FALSE");
+	LOG_ENTRY(TXT("COMTraceFactory::LockServer(%s)"), (fLock) ? TXT("TRUE") : TXT("FALSE"));
 
 	HRESULT hr = m_pClassFactory->LockServer(fLock);
 
-	LOG_VAR("LockCount=%u", COM::InprocServer::This().LockCount());
-	LOG_EXIT("HRESULT=0x%08X [%s]", hr, CStrCvt::FormatError(hr));
+	LOG_VAR(TXT("LockCount=%u"), COM::InprocServer::This().LockCount());
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
 
 	return hr;
 }
