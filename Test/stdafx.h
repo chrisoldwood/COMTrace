@@ -8,3 +8,4 @@
 #include <Core/Common.hpp>
 #include <WCL/Common.hpp>
 #include <iostream>
+#import "../COMTrace.tlb" raw_interfaces_only no_smart_pointers
