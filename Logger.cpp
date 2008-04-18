@@ -34,7 +34,7 @@ Logger::~Logger()
 ////////////////////////////////////////////////////////////////////////////////
 //! Set the log filename.
 
-void Logger::SetFilename(const std::tstring& strFile)
+void Logger::SetFilename(const tstring& strFile)
 {
 	m_strFile = strFile;
 }
@@ -64,7 +64,7 @@ void Logger::LogFnEntry(const tchar* pszMsg, ...)
 	va_list	args;
 	va_start(args, pszMsg);
 
-	Write(std::tstring(m_nIndent, ' ').c_str(), CString::FmtEx(pszMsg, args));
+	Write(tstring(m_nIndent, ' ').c_str(), CString::FmtEx(pszMsg, args));
 
 	va_end(args);
 
@@ -81,7 +81,7 @@ void Logger::LogFnParam(const tchar* pszMsg, ...)
 	va_list	args;
 	va_start(args, pszMsg);
 
-	Write(std::tstring(m_nIndent-FUNC_INDENT+PARAM_INDENT, ' ').c_str(), CString::FmtEx(pszMsg, args));
+	Write(tstring(m_nIndent-FUNC_INDENT+PARAM_INDENT, ' ').c_str(), CString::FmtEx(pszMsg, args));
 
 	va_end(args);
 }
@@ -98,7 +98,7 @@ void Logger::LogFnExit(const tchar* pszMsg, ...)
 	va_list	args;
 	va_start(args, pszMsg);
 
-	Write(std::tstring(m_nIndent, ' ').c_str(), CString::FmtEx(pszMsg, args));
+	Write(tstring(m_nIndent, ' ').c_str(), CString::FmtEx(pszMsg, args));
 
 	va_end(args);
 

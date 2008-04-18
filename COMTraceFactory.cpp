@@ -28,8 +28,8 @@ COMTraceFactory::~COMTraceFactory()
 
 HRESULT COMCALL COMTraceFactory::CreateInstance(IUnknown* pOuter, const IID& rIID, void** ppInterface)
 {
-	std::tstring strIID       = COM::FormatGUID(rIID);
-	std::tstring strIFaceName = COM::LookupIID(rIID);
+	tstring strIID       = COM::FormatGUID(rIID);
+	tstring strIFaceName = COM::LookupIID(rIID);
 
 	LOG_ENTRY(TXT("COMTraceFactory::CreateInstance(IUnknown*, IID)"));
 	LOG_PARAM(TXT("IUnknown*=0x%p"), pOuter);

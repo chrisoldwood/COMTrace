@@ -29,7 +29,7 @@ public:
 	//
 
 	//! Set the log filename.
-	void SetFilename(const std::tstring& strFile);
+	void SetFilename(const tstring& strFile);
 
 	//
 	// Methods.
@@ -60,15 +60,15 @@ public:
 		//
 		// Members.
 		//
-		std::tstring	m_strMsg;	//!< The function result message.
+		tstring	m_strMsg;	//!< The function result message.
 	};
 
 private:
 	//
 	// Members.
 	//
-	std::tstring	m_strFile;		//!< The trace filename.
-	size_t			m_nIndent;		//!< The current indent level.
+	tstring	m_strFile;		//!< The trace filename.
+	size_t	m_nIndent;		//!< The current indent level.
 
 	//
 	// Internal methods.

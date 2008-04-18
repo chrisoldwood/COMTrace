@@ -21,7 +21,7 @@ class COMTraceObject : public COM::ObjectBase<T>
 {
 public:
 	//! Default constructor.
-	COMTraceObject(const std::tstring& strClass);
+	COMTraceObject(const tstring& strClass);
 
 	//! Destructor.
 	virtual ~COMTraceObject();
@@ -50,14 +50,14 @@ private:
 	//
 	// Members.
 	//
-	std::tstring	m_strClass;		//!< The name of the COM implementation class.
+	tstring	m_strClass;		//!< The name of the COM implementation class.
 };
 
 ////////////////////////////////////////////////////////////////////////////////
 //! Default constructor.
 
 template<typename T>
-inline COMTraceObject<T>::COMTraceObject(const std::tstring& strClass)
+inline COMTraceObject<T>::COMTraceObject(const tstring& strClass)
 	: m_strClass(strClass)
 {
 }
@@ -76,8 +76,8 @@ inline COMTraceObject<T>::~COMTraceObject()
 template<typename T>
 inline HRESULT COMTraceObject<T>::QueryInterfaceImpl(const IID& rIID, void** ppInterface)
 {
-	std::tstring strIID       = COM::FormatGUID(rIID);
-	std::tstring strIFaceName = COM::LookupIID(rIID);
+	tstring strIID       = COM::FormatGUID(rIID);
+	tstring strIFaceName = COM::LookupIID(rIID);
 
 	LOG_ENTRY(TXT("%s::QueryInterface(IID)"), m_strClass.c_str());
 	LOG_PARAM(TXT("IID=%s [%s]"), strIID.c_str(), strIFaceName.c_str());
@@ -125,8 +125,8 @@ inline ULONG COMTraceObject<T>::ReleaseImpl()
 template<typename T>
 inline HRESULT COMTraceObject<T>::InterfaceSupportsErrorInfoImpl(const IID& rIID)
 {
-	std::tstring strIID       = COM::FormatGUID(rIID);
-	std::tstring strIFaceName = COM::LookupIID(rIID);
+	tstring strIID       = COM::FormatGUID(rIID);
+	tstring strIFaceName = COM::LookupIID(rIID);
 
 	LOG_ENTRY(TXT("%s::InterfaceSupportsErrorInfoImpl()"), m_strClass.c_str());
 	LOG_PARAM(TXT("IID=%s [%s]"), strIID.c_str(), strIFaceName.c_str());

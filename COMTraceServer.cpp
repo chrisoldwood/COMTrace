@@ -34,7 +34,7 @@ void COMTraceServer::OnLoad()
 
 	// Initialise the logger.
 	// NB: We have to do it after the CModule singleton has been initialised.
-	g_oLogger.SetFilename(std::tstring(strFile));
+	g_oLogger.SetFilename(tstring(strFile));
 	CFile::Delete(strFile);
 
 	LOG_MSG  (TXT("************************************************************"));
@@ -74,10 +74,10 @@ void COMTraceServer::OnThreadDetached()
 
 HRESULT COMTraceServer::DllGetClassObject(REFCLSID rCLSID, REFIID rIID, LPVOID* ppFactory)
 {
-	std::tstring strCLSID     = COM::FormatGUID(rCLSID);
-	std::tstring strClassName = COM::LookupCLSID(rCLSID);
-	std::tstring strIID       = COM::FormatGUID(rIID);
-	std::tstring strIFaceName = COM::LookupIID(rIID);
+	tstring strCLSID     = COM::FormatGUID(rCLSID);
+	tstring strClassName = COM::LookupCLSID(rCLSID);
+	tstring strIID       = COM::FormatGUID(rIID);
+	tstring strIFaceName = COM::LookupIID(rIID);
 
 	LOG_ENTRY(TXT("COMTraceServer::DllGetClassObject(CLSID, IID)"));
 	LOG_PARAM(TXT("CLSID=%s [%s]"), strCLSID.c_str(), strClassName.c_str());
