@@ -22,27 +22,18 @@ extern void TestErrorInfo();
 
 int _tmain(int /*argc*/, _TCHAR* /*argv*/[])
 {
-#ifdef _DEBUG
-	Core::EnableLeakReporting(true);
-#endif
-
-	WCL::AutoCom oCom(COINIT_APARTMENTTHREADED);
-//	WCL::AutoCom oCom(COINIT_MULTITHREADED);
-
-	try
+	TEST_SUITE_BEGIN
 	{
+		WCL::AutoCom oCom(COINIT_APARTMENTTHREADED);
+//		WCL::AutoCom oCom(COINIT_MULTITHREADED);
+
 		TestComPtr();
 		TestCustom();
 		TestDual();
 		TestDispatch();
 		TestErrorInfo();
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
 
-	Core::WriteTestsSummary();
-
-	return Core::GetTestProcessResult();
+		Core::SetTestRunFinalStatus(true);
+	}
+	TEST_SUITE_END
 }
