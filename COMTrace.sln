@@ -1,0 +1,84 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "COMTrace", "COMTrace\COMTrace.vcproj", "{D647F3B4-E48F-46A7-80C6-A0FB053326A1}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Core", "Lib\Core\Core.vcproj", "{790BC113-52FB-4565-8968-79B8B011C520}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Wcl", "Lib\WCL\Wcl.vcproj", "{9B0335B6-93BE-4604-8497-27431874D758}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "COM", "Lib\COM\COM.vcproj", "{A5573046-6334-4DDA-94B5-EA329D0B4124}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "COMTrace\Test\Test.vcproj", "{0F363877-6D64-4609-B522-8C251D83C2BD}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
+		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
+	EndGlobalSection
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 6
+		SccLocalPath0 = .
+		CanCheckoutShared = true
+		SolutionUniqueID = {17D130EB-B104-4AA3-8959-E311AB829ED3}
+		SccProjectUniqueName1 = COMTrace\\COMTrace.vcproj
+		SccProjectName1 = \u0022$/Win32/COMTrace\u0022,\u0020GCEAAAAA
+		SccLocalPath1 = COMTrace
+		CanCheckoutShared = true
+		SccProjectUniqueName2 = Lib\\Core\\Core.vcproj
+		SccProjectName2 = \u0022$/Win32/Lib/Core\u0022,\u0020QWDAAAAA
+		SccLocalPath2 = Lib\\Core
+		CanCheckoutShared = true
+		SccProjectUniqueName3 = Lib\\WCL\\Wcl.vcproj
+		SccProjectName3 = \u0022$/Win32/Lib/WCL\u0022,\u0020HPAAAAAA
+		SccLocalPath3 = Lib\\WCL
+		CanCheckoutShared = true
+		SccProjectUniqueName4 = Lib\\COM\\COM.vcproj
+		SccProjectName4 = \u0022$/Win32/Lib/COM\u0022,\u0020FCEAAAAA
+		SccLocalPath4 = Lib\\COM
+		CanCheckoutShared = true
+		SccProjectUniqueName5 = COMTrace\\Test\\Test.vcproj
+		SccProjectName5 = \u0022$/Win32/COMTrace/Test\u0022,\u0020EDEAAAAA
+		SccLocalPath5 = COMTrace\\Test
+		CanCheckoutShared = true
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{D647F3B4-E48F-46A7-80C6-A0FB053326A1}.Debug.ActiveCfg = Debug|Win32
+		{D647F3B4-E48F-46A7-80C6-A0FB053326A1}.Debug.Build.0 = Debug|Win32
+		{D647F3B4-E48F-46A7-80C6-A0FB053326A1}.Release.ActiveCfg = Release|Win32
+		{D647F3B4-E48F-46A7-80C6-A0FB053326A1}.Release.Build.0 = Release|Win32
+		{790BC113-52FB-4565-8968-79B8B011C520}.Debug.ActiveCfg = Debug|Win32
+		{790BC113-52FB-4565-8968-79B8B011C520}.Debug.Build.0 = Debug|Win32
+		{790BC113-52FB-4565-8968-79B8B011C520}.Release.ActiveCfg = Release|Win32
+		{790BC113-52FB-4565-8968-79B8B011C520}.Release.Build.0 = Release|Win32
+		{9B0335B6-93BE-4604-8497-27431874D758}.Debug.ActiveCfg = Debug|Win32
+		{9B0335B6-93BE-4604-8497-27431874D758}.Debug.Build.0 = Debug|Win32
+		{9B0335B6-93BE-4604-8497-27431874D758}.Release.ActiveCfg = Release|Win32
+		{9B0335B6-93BE-4604-8497-27431874D758}.Release.Build.0 = Release|Win32
+		{A5573046-6334-4DDA-94B5-EA329D0B4124}.Debug.ActiveCfg = Debug|Win32
+		{A5573046-6334-4DDA-94B5-EA329D0B4124}.Debug.Build.0 = Debug|Win32
+		{A5573046-6334-4DDA-94B5-EA329D0B4124}.Release.ActiveCfg = Release|Win32
+		{A5573046-6334-4DDA-94B5-EA329D0B4124}.Release.Build.0 = Release|Win32
+		{0F363877-6D64-4609-B522-8C251D83C2BD}.Debug.ActiveCfg = Debug|Win32
+		{0F363877-6D64-4609-B522-8C251D83C2BD}.Debug.Build.0 = Debug|Win32
+		{0F363877-6D64-4609-B522-8C251D83C2BD}.Release.ActiveCfg = Release|Win32
+		{0F363877-6D64-4609-B522-8C251D83C2BD}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
