@@ -32,7 +32,6 @@
 				BasicRuntimeChecks="3"
 				SmallerTypeCheck="TRUE"
 				RuntimeLibrary="1"
-				EnableFunctionLevelLinking="FALSE"
 				TreatWChar_tAsBuiltInType="TRUE"
 				ForceConformanceInForLoopScope="TRUE"
 				RuntimeTypeInfo="TRUE"
@@ -40,21 +39,15 @@
 				PrecompiledHeaderThrough="Common.hpp"
 				WarningLevel="4"
 				WarnAsError="TRUE"
-				DebugInformationFormat="3"
-				CompileAs="0"/>
+				DebugInformationFormat="3"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
 				RegisterOutput="TRUE"
-				OutputFile="$(OutDir)/COMTrace.dll"
-				LinkIncremental="2"
-				AdditionalLibraryDirectories=""
 				ModuleDefinitionFile="..\Lib\COM\InprocServer.def"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile="$(OutDir)/COMTrace.pdb"
 				SubSystem="2"
-				ImportLibrary="$(OutDir)/COMTrace.lib"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCMIDLTool"
@@ -90,13 +83,11 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/EHa"
-				InlineFunctionExpansion="0"
 				AdditionalIncludeDirectories="../Lib"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;COMTRACE_EXPORTS"
 				StringPooling="TRUE"
 				ExceptionHandling="FALSE"
 				RuntimeLibrary="0"
-				EnableFunctionLevelLinking="FALSE"
 				TreatWChar_tAsBuiltInType="TRUE"
 				ForceConformanceInForLoopScope="TRUE"
 				RuntimeTypeInfo="TRUE"
@@ -104,22 +95,17 @@
 				PrecompiledHeaderThrough="Common.hpp"
 				WarningLevel="4"
 				WarnAsError="TRUE"
-				DebugInformationFormat="3"
-				CompileAs="0"/>
+				DebugInformationFormat="3"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
 				RegisterOutput="TRUE"
-				OutputFile="$(OutDir)/COMTrace.dll"
-				LinkIncremental="1"
-				AdditionalLibraryDirectories=""
 				ModuleDefinitionFile="..\Lib\COM\InprocServer.def"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary="$(OutDir)/COMTrace.lib"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCMIDLTool"
