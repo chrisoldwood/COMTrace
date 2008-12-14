@@ -20,18 +20,18 @@ extern void TestErrorInfo();
 ////////////////////////////////////////////////////////////////////////////////
 //! The entry point for the test harness.
 
-int _tmain(int /*argc*/, _TCHAR* /*argv*/[])
+int _tmain(int argc, _TCHAR* argv[])
 {
-	TEST_SUITE_BEGIN
+	TEST_SUITE_BEGIN(argc, argv)
 	{
 		WCL::AutoCom oCom(COINIT_APARTMENTTHREADED);
 //		WCL::AutoCom oCom(COINIT_MULTITHREADED);
 
-		TestComPtr();
-		TestCustom();
-		TestDual();
-		TestDispatch();
-		TestErrorInfo();
+		TEST_CASE(TestComPtr);
+		TEST_CASE(TestCustom);
+		TEST_CASE(TestDual);
+		TEST_CASE(TestDispatch);
+		TEST_CASE(TestErrorInfo);
 
 		Core::SetTestRunFinalStatus(true);
 	}
