@@ -18,9 +18,9 @@ void TestComPtr()
 	IInterfacePtr pTracer2(pTracer1);
 	IInterfacePtr pTracer3;
 
-	TEST_TRUE(pTracer1.Get() != nullptr);
-	TEST_TRUE(pTracer1.Get() == pTracer2.Get());
-	TEST_TRUE(pTracer3.Get() == nullptr);
+	TEST_TRUE(pTracer1.get() != nullptr);
+	TEST_TRUE(pTracer1.get() == pTracer2.get());
+	TEST_TRUE(pTracer3.get() == nullptr);
 
 	pTracer3 = pTracer2;
 
