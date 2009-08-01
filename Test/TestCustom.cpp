@@ -8,10 +8,7 @@
 #include <WCL/ComPtr.hpp>
 #include <WCL/ComStr.hpp>
 
-////////////////////////////////////////////////////////////////////////////////
-//! The unit tests for the custom interface.
-
-void TestCustom()
+TEST_SET(Custom)
 {
 	typedef WCL::ComPtr<COMTraceLib::ICustomInterface> IInterfacePtr;
 
@@ -24,3 +21,4 @@ void TestCustom()
 	TEST_TRUE(hr == S_OK);
 	TEST_TRUE(wcscmp(bstrOut.Get(), L"!dlroW olleH") == 0);
 }
+TEST_SET_END

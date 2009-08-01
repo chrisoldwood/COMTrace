@@ -8,10 +8,7 @@
 #include <WCL/Variant.hpp>
 #include <WCL/ComPtr.hpp>
 
-////////////////////////////////////////////////////////////////////////////////
-//! The unit tests for the automation interface.
-
-void TestDispatch()
+TEST_SET(Dispatch)
 {
 	typedef WCL::ComPtr<::IDispatch> IInterfacePtr;
 
@@ -38,3 +35,4 @@ void TestDispatch()
 	TEST_TRUE(SUCCEEDED(hr));
 	TEST_TRUE(wcscmp(V_BSTR(&vtResult), L"!dlroW olleH") == 0);
 }
+TEST_SET_END

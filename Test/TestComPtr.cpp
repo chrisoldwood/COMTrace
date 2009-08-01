@@ -7,10 +7,7 @@
 #include <Core/UnitTest.hpp>
 #include <WCL/ComPtr.hpp>
 
-////////////////////////////////////////////////////////////////////////////////
-//! The unit tests for the ComPtr template class.
-
-void TestComPtr()
+TEST_SET(ComPtr)
 {
 	typedef WCL::ComPtr<COMTraceLib::ICustomInterface> IInterfacePtr;
 
@@ -30,3 +27,4 @@ void TestComPtr()
 
 	TEST_TRUE(!pTracer1);
 }
+TEST_SET_END

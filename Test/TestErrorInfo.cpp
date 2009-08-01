@@ -9,10 +9,7 @@
 #include <WCL/ComStr.hpp>
 #include <WCL/StrCvt.hpp>
 
-////////////////////////////////////////////////////////////////////////////////
-//! The unit tests for the error handling.
-
-void TestErrorInfo()
+TEST_SET(ErrorInfo)
 {
 	typedef WCL::ComPtr<COMTraceLib::ICustomInterface> IInterfacePtr;
 	typedef WCL::ComPtr<ISupportErrorInfo> ISupportErrorInfoPtr;
@@ -45,3 +42,4 @@ void TestErrorInfo()
 	TEST_TRUE(hrMethod == E_POINTER);
 	TEST_TRUE(CStrCvt::FormatError(hrMethod) == TXT("Invalid pointer"));
 }
+TEST_SET_END

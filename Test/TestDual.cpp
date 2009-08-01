@@ -9,10 +9,7 @@
 #include <WCL/ComStr.hpp>
 #include <WCL/Variant.hpp>
 
-////////////////////////////////////////////////////////////////////////////////
-//! The unit tests for the dual interface.
-
-void TestDual()
+TEST_SET(Dual)
 {
 	typedef WCL::ComPtr<COMTraceLib::IDualInterface> IInterfacePtr;
 
@@ -46,3 +43,4 @@ void TestDual()
 	TEST_TRUE(SUCCEEDED(hr));
 	TEST_TRUE(wcscmp(bstrOut.Get(), L"!dlroW olleH") == 0);
 }
+TEST_SET_END
