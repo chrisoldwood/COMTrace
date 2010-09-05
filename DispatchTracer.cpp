@@ -138,7 +138,7 @@ HRESULT COMCALL DispatchTracer::Invoke(DISPID lMemberID, REFIID /*rIID*/, LCID /
 	LOG_PARAM(TXT("DISPPARAMS*=Total: %u Named: %u"), pParams->cArgs, pParams->cNamedArgs);
 
 	for (size_t i = 0; i < pParams->cArgs; ++i)
-		LOG_PARAM(TXT("DISPPARAMS[%u]=%s"), i, WCL::Variant::formatFullType(pParams->rgvarg[i]));
+		LOG_PARAM(TXT("DISPPARAMS[%u]=%s"), i, WCL::Variant::formatFullType(pParams->rgvarg[i]).c_str());
 
 	HRESULT hr = E_FAIL;
 
