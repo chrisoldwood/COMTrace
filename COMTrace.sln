@@ -23,31 +23,6 @@ Global
 	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
 		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
 	EndGlobalSection
-	GlobalSection(SourceCodeControl) = preSolution
-		SccNumberOfProjects = 6
-		SccProjectUniqueName0 = COMTrace.vcproj
-		SccLocalPath0 = .
-		CanCheckoutShared = true
-		SccProjectUniqueName1 = ..\\Lib\\Core\\Core.vcproj
-		SccProjectName1 = \u0022$/Win32/Lib/Core\u0022,\u0020QWDAAAAA
-		SccLocalPath1 = ..\\Lib\\Core
-		CanCheckoutShared = true
-		SccProjectUniqueName2 = ..\\Lib\\WCL\\Wcl.vcproj
-		SccProjectName2 = \u0022$/Win32/Lib/WCL\u0022,\u0020HPAAAAAA
-		SccLocalPath2 = ..\\Lib\\WCL
-		CanCheckoutShared = true
-		SccProjectUniqueName3 = ..\\Lib\\COM\\COM.vcproj
-		SccProjectName3 = \u0022$/Win32/Lib/COM\u0022,\u0020FCEAAAAA
-		SccLocalPath3 = ..\\Lib\\COM
-		CanCheckoutShared = true
-		SccProjectUniqueName4 = Test\\Test.vcproj
-		SccProjectName4 = \u0022$/Win32/COMTrace/Test\u0022,\u0020EDEAAAAA
-		SccLocalPath4 = Test
-		CanCheckoutShared = true
-		SccLocalPath5 = .
-		CanCheckoutShared = true
-		SolutionUniqueID = {76A30832-8DA9-452B-8CF6-043EBA34290D}
-	EndGlobalSection
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
 		Release = Release

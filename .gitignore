@@ -1,0 +1,12 @@
+# Visual C++
+[Dd]ebug
+[Rr]elease
+*.ncb
+*.suo
+
+# COM
+*.tlb
+*_h.h
+*_i.c
+*_p.c
+dlldata.c
