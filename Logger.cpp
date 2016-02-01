@@ -101,9 +101,6 @@ void Logger::LogFnExit(const tchar* pszMsg, ...)
 	Write(tstring(m_nIndent, ' ').c_str(), CString::FmtEx(pszMsg, args));
 
 	va_end(args);
-
-	if (m_nIndent == 0)
-		Write(TXT(""), TXT(""));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -139,7 +136,8 @@ void Logger::Write(const tchar* pszPrefix, const tchar* pszMsg)
 
 Logger::ResultWriter::~ResultWriter()
 {
-	ASSERT(!m_strMsg.empty());
-
-	g_oLogger.LogFnExit(TXT("%s"), m_strMsg.c_str());
+	if (!m_strMsg.empty())
+		g_oLogger.LogFnExit(TXT("%s"), m_strMsg.c_str());
+	else
+		g_oLogger.LogFnExit(TXT("%s"), TXT("(exception thrown?)"));
 }

@@ -102,4 +102,18 @@ extern Logger g_oLogger;
 //! Log the function exit.
 #define LOG_EXIT	rw.m_strMsg = CString::Fmt
 
+//! Catch and log any exceptions
+#define LOG_EXCEPTION_AND_RETHROW												\
+																				\
+					catch (const Core::Exception& e)							\
+					{															\
+						LOG_MSG(TXT("ERROR: %s"), e.twhat());					\
+						throw;													\
+					}															\
+					catch (...)													\
+					{															\
+						LOG_MSG(TXT("ERROR: %s"), TXT("Unknown exception"));	\
+						throw;													\
+					}
+
 #endif // LOGGER_HPP
