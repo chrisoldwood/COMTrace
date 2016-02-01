@@ -13,6 +13,8 @@ TEST_SET(Dual)
 {
 	typedef WCL::ComPtr<COMTraceLib::IDualInterface> IInterfacePtr;
 
+TEST_CASE("The dual interface-based tracer COM object test method can be invoked")
+{
 	const wchar_t* wstrIn(L"Hello World!");
 
 	IInterfacePtr pTracer(__uuidof(COMTraceLib::DualTracer));
@@ -42,5 +44,8 @@ TEST_SET(Dual)
 
 	TEST_TRUE(SUCCEEDED(hr));
 	TEST_TRUE(wcscmp(bstrOut.Get(), L"!dlroW olleH") == 0);
+}
+TEST_CASE_END
+
 }
 TEST_SET_END

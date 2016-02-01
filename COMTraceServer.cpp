@@ -153,6 +153,26 @@ HRESULT COMTraceServer::DllUnregisterServer()
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+//! Register or unregister the server to/from the registry.
+
+HRESULT COMTraceServer::DllInstall(bool install, const tchar* cmdLine)
+{
+	try
+	{
+		LOG_ENTRY(TXT("COMTraceServer::DllInstall()"));
+		LOG_PARAM(TXT("INSTALL=%s"), (install) ? TXT("true") : TXT("false"));
+		LOG_PARAM(TXT("CMDLINE=%s"), (cmdLine != nullptr) ? cmdLine : TXT("(null)"));
+
+		HRESULT hr = InprocServer::DllInstall(install, cmdLine);
+
+		LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+
+		return hr;
+	}
+	LOG_EXCEPTION_AND_RETHROW
+}
+
+////////////////////////////////////////////////////////////////////////////////
 //! Lock the server.
 
 void COMTraceServer::Lock()

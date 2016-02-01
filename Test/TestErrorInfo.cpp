@@ -15,6 +15,8 @@ TEST_SET(ErrorInfo)
 	typedef WCL::ComPtr<ISupportErrorInfo> ISupportErrorInfoPtr;
 	typedef WCL::ComPtr<IErrorInfo> IErrorInfoPtr;
 
+TEST_CASE("An IErrorInfo COM object is returned when an error occurs")
+{
 	IInterfacePtr pTracer;
 	pTracer.CreateInstance(__uuidof(COMTraceLib::CustomTracer));
 	HRESULT hrMethod = pTracer->TestMethod(nullptr, nullptr);
@@ -41,5 +43,8 @@ TEST_SET(ErrorInfo)
 	TEST_TRUE(wcscmp(bstrDescription.Get(), L"pbstrOutput is NULL [0x80004003 - Invalid pointer]") == 0);
 	TEST_TRUE(hrMethod == E_POINTER);
 	TEST_TRUE(CStrCvt::FormatError(hrMethod) == TXT("Invalid pointer"));
+}
+TEST_CASE_END
+
 }
 TEST_SET_END

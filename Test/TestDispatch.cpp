@@ -12,6 +12,8 @@ TEST_SET(Dispatch)
 {
 	typedef WCL::ComPtr<::IDispatch> IInterfacePtr;
 
+TEST_CASE("The IDispatch-based tracer COM object test method can be invoked")
+{
 	const wchar_t* wstrIn(L"Hello World!");
 
 	IInterfacePtr pTracer(__uuidof(COMTraceLib::DispatchTracer));
@@ -34,5 +36,8 @@ TEST_SET(Dispatch)
 
 	TEST_TRUE(SUCCEEDED(hr));
 	TEST_TRUE(wcscmp(V_BSTR(&vtResult), L"!dlroW olleH") == 0);
+}
+TEST_CASE_END
+
 }
 TEST_SET_END

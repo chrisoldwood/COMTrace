@@ -12,6 +12,8 @@ TEST_SET(Custom)
 {
 	typedef WCL::ComPtr<COMTraceLib::ICustomInterface> IInterfacePtr;
 
+TEST_CASE("The custom tracer COM object test method can be invoked")
+{
 	WCL::ComStr bstrIn(L"Hello World!");
 	WCL::ComStr bstrOut;
 
@@ -20,5 +22,8 @@ TEST_SET(Custom)
 
 	TEST_TRUE(hr == S_OK);
 	TEST_TRUE(wcscmp(bstrOut.Get(), L"!dlroW olleH") == 0);
+}
+TEST_CASE_END
+
 }
 TEST_SET_END

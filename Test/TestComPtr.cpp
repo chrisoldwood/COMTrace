@@ -11,6 +11,8 @@ TEST_SET(ComPtr)
 {
 	typedef WCL::ComPtr<COMTraceLib::ICustomInterface> IInterfacePtr;
 
+TEST_CASE("The custom tracer COM object can created")
+{
 	IInterfacePtr pTracer1(__uuidof(COMTraceLib::CustomTracer));
 	IInterfacePtr pTracer2(pTracer1);
 	IInterfacePtr pTracer3;
@@ -26,5 +28,8 @@ TEST_SET(ComPtr)
 	pTracer1.Release();
 
 	TEST_TRUE(!pTracer1);
+}
+TEST_CASE_END
+
 }
 TEST_SET_END

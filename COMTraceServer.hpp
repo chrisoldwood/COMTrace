@@ -63,6 +63,9 @@ private:
 	//! Unregister the server from the registry.
 	virtual HRESULT DllUnregisterServer();
 
+	//! Register or unregister the server to/from the registry.
+	virtual HRESULT DllInstall(bool install, const tchar* cmdLine);
+
 	//
 	// Overriden Server class methods.
 	//
