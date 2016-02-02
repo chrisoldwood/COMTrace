@@ -38,8 +38,6 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
-				WarningLevel="1"
-				WarnAsError="true"
 				TypeLibraryName="$(ProjectName).tlb"
 			/>
 			<Tool
@@ -127,8 +125,6 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
-				WarningLevel="1"
-				WarnAsError="true"
 				TypeLibraryName="$(ProjectName).tlb"
 			/>
 			<Tool
