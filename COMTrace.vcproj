@@ -65,6 +65,7 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG"
 				AdditionalIncludeDirectories="../Lib"
 			/>
 			<Tool
@@ -149,6 +150,7 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"
 				AdditionalIncludeDirectories="../Lib"
 			/>
 			<Tool
