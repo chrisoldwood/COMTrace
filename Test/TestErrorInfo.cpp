@@ -9,6 +9,11 @@
 #include <WCL/ComStr.hpp>
 #include <WCL/StrCvt.hpp>
 
+#ifdef _MSC_VER
+// declaration of 'Xxx' hides global declaration (ISupportErrorInfoPtr).
+#pragma warning(disable : 4459)
+#endif
+
 TEST_SET(ErrorInfo)
 {
 	typedef WCL::ComPtr<COMTraceLib::ICustomInterface> IInterfacePtr;
