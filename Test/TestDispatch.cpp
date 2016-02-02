@@ -3,7 +3,7 @@
 //! \brief  The unit tests for the automation interface.
 //! \author Chris Oldwood
 
-#include "stdafx.h"
+#include "Common.hpp"
 #include <Core/UnitTest.hpp>
 #include <WCL/Variant.hpp>
 #include <WCL/ComPtr.hpp>
