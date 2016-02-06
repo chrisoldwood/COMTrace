@@ -3,5 +3,3 @@
 - Register my custom interface so at least I can see the name.
 
 - Handle IMarshal and do proxy for marshal by value.
-
-- Investigate per-user redirection so we can avoid building and running tests as an admin.
