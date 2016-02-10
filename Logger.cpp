@@ -115,7 +115,7 @@ void Logger::Write(const tchar* pszPrefix, const tchar* pszMsg)
 	// Open the file for appending.
 	FILE* pLogFile = _tfopen(m_strFile.c_str(), TXT("a"));
 
-	if (pLogFile != NULL)
+	if (pLogFile != nullptr)
 	{
 		// Write the message and close.
 		fputs(T2A(pszPrefix), pLogFile);
