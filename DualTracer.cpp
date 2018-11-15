@@ -42,7 +42,7 @@ HRESULT COMCALL DualTracer::TestMethod(BSTR bstrInput, BSTR* pbstrOutput)
 	}
 	COM_CATCH(hr)
 
-	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 	return hr;
 }
@@ -66,7 +66,7 @@ HRESULT COMCALL DualTracer::GetTypeInfoCount(UINT* pnInfo)
 	}
 	COM_CATCH(hr)
 
-	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 	return hr;
 }
@@ -88,7 +88,7 @@ HRESULT COMCALL DualTracer::GetTypeInfo(UINT nInfo, LCID dwLCID, ITypeInfo** ppT
 	}
 	COM_CATCH(hr)
 
-	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 	return hr;
 }
@@ -112,7 +112,7 @@ HRESULT COMCALL DualTracer::GetIDsOfNames(REFIID rIID, LPOLESTR* aszNames, UINT 
 	}
 	COM_CATCH(hr)
 
-	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 	return hr;
 }
@@ -135,7 +135,7 @@ HRESULT COMCALL DualTracer::Invoke(DISPID lMemberID, REFIID rIID, LCID dwLCID, W
 	}
 	COM_CATCH(hr)
 
-	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 	return hr;
 }

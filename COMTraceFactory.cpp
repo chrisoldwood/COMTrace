@@ -39,7 +39,7 @@ HRESULT COMCALL COMTraceFactory::CreateInstance(IUnknown* pOuter, const IID& rII
 
 		HRESULT hr = m_pClassFactory->CreateInstance(pOuter, rIID, ppInterface);
 
-		LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+		LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 		return hr;
 	}
@@ -58,7 +58,7 @@ HRESULT COMCALL COMTraceFactory::LockServer(BOOL fLock)
 		HRESULT hr = m_pClassFactory->LockServer(fLock);
 
 		LOG_VAR(TXT("LockCount=%u"), COM::InprocServer::This().LockCount());
-		LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+		LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 		return hr;
 	}

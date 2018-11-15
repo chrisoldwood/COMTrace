@@ -51,7 +51,7 @@ HRESULT COMCALL DispatchTracer::GetTypeInfoCount(UINT* pnInfo)
 	}
 	COM_CATCH(hr)
 
-	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 	return hr;
 }
@@ -78,7 +78,7 @@ HRESULT COMCALL DispatchTracer::GetTypeInfo(UINT nInfo, LCID dwLCID, ITypeInfo**
 	}
 	COM_CATCH(hr)
 
-	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 	return hr;
 }
@@ -122,7 +122,7 @@ HRESULT COMCALL DispatchTracer::GetIDsOfNames(REFIID /*rIID*/, LPOLESTR* aszName
 	}
 	COM_CATCH(hr)
 
-	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 	return hr;
 }
@@ -181,7 +181,7 @@ HRESULT COMCALL DispatchTracer::Invoke(DISPID lMemberID, REFIID /*rIID*/, LCID /
 	}
 	COM_CATCH(hr)
 
-	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 	return hr;
 }

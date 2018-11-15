@@ -84,7 +84,7 @@ inline HRESULT COMTraceObject<T>::QueryInterfaceImpl(const IID& rIID, void** ppI
 
 	HRESULT hr = COM::ObjectBase<T>::QueryInterfaceImpl(rIID, ppInterface);
 
-	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 	return hr;
 }
@@ -133,7 +133,7 @@ inline HRESULT COMTraceObject<T>::InterfaceSupportsErrorInfoImpl(const IID& rIID
 
 	HRESULT hr = COM::ObjectBase<T>::InterfaceSupportsErrorInfoImpl(rIID);
 
-	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+	LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 	return hr;
 }

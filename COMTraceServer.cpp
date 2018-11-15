@@ -90,7 +90,7 @@ HRESULT COMTraceServer::DllGetClassObject(REFCLSID rCLSID, REFIID rIID, LPVOID* 
 
 		HRESULT hr = InprocServer::DllGetClassObject(rCLSID, rIID, ppFactory);
 
-		LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+		LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 		return hr;
 	}
@@ -109,7 +109,7 @@ HRESULT COMTraceServer::DllCanUnloadNow()
 
 		HRESULT hr = InprocServer::DllCanUnloadNow();
 
-		LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+		LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 		return hr;
 	}
@@ -127,7 +127,7 @@ HRESULT COMTraceServer::DllRegisterServer()
 
 		HRESULT hr = InprocServer::DllRegisterServer();
 
-		LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+		LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 		return hr;
 	}
@@ -145,7 +145,7 @@ HRESULT COMTraceServer::DllUnregisterServer()
 
 		HRESULT hr = InprocServer::DllUnregisterServer();
 
-		LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+		LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 		return hr;
 	}
@@ -165,7 +165,7 @@ HRESULT COMTraceServer::DllInstall(bool install, const tchar* cmdLine)
 
 		HRESULT hr = InprocServer::DllInstall(install, cmdLine);
 
-		LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr));
+		LOG_EXIT(TXT("HRESULT=0x%08X [%s]"), hr, CStrCvt::FormatError(hr).c_str());
 
 		return hr;
 	}
